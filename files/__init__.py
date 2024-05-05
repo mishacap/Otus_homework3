@@ -7,8 +7,10 @@ def get_path(filename: str):
     return os.path.join(FILES_DIR, filename)
 
 
-TXT_FILE_PATH = get_path(filename="example.txt")
-CSV_FILE_PATH = get_path(filename="users.csv")
-JSON_FILE_PATH = get_path(filename="example.json")
-XML_FILE_PATH = get_path(filename="books.xml")
-JPEG_FILE_PATH = get_path(filename="example.jpeg")
+
+CSV_FILE_PATH = get_path(filename="books.csv")
+JSON_FILE_PATH = get_path(filename="users.json")
+JSON_RESULT_FILE_PATH = get_path(filename="result.json")
+# XML_FILE_PATH = get_path(filename="books.xml")
+# JPEG_FILE_PATH = get_path(filename="example.jpeg")
+# TXT_FILE_PATH = get_path(filename="example.txt")
