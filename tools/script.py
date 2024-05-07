@@ -42,17 +42,18 @@ with open(JSON_RESULT_FILE_PATH, "w") as json_file:
 
 
 """
-Convert the books.csv file to a books.json file and remove the extra lines
+Convert the books.csv file to a books.json file
 """
 csv_data = []
 with open(CSV_FILE_PATH, "r") as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
-        if all(key in row for key in ["title", "author", "pages", "genre"]):
-            csv_data.append({
-                "title": row["title"],
-                "author": row["author"],
-                "pages": row["pages"],
-                "genre": row["genre"]
-            })
-print(csv_data)
+        csv_data.append(row)
+
+with open(JSON_BOOKS_FILE_PATH, "w") as json_file:
+    json.dump(csv_data, json_file, indent=4)
+
+
+"""
+Remove extra line
+"""
