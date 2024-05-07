@@ -74,3 +74,30 @@ with open(JSON_BOOKS_FILE_PATH, "r") as json_file:
 
 with open(JSON_BOOKS_FILE_PATH, "w") as json_file:
     json.dump(extracted_data, json_file, indent=4)
+
+
+"""
+Concatenation of data into one file result.json
+"""
+with open(JSON_RESULT_FILE_PATH, "r") as users:
+    users_data = json.load(users)
+
+with open(JSON_BOOKS_FILE_PATH, "r") as books:
+    books_data = json.load(books)
+
+book_index = 0
+
+for user in users_data[:14]:
+    books_array = user["books"]
+    books_to_move = books_data[book_index:book_index + 8]
+    books_array.extend(books_to_move)
+    book_index += 8
+
+for user in users_data[14:]:
+    books_array = user["books"]
+    books_to_move = books_data[book_index:book_index + 7]
+    books_array.extend(books_to_move)
+    book_index += 7
+
+with open(JSON_RESULT_FILE_PATH, "w") as users_file:
+    json.dump(users_data, users_file, indent=4)
