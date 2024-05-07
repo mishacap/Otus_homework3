@@ -45,6 +45,7 @@ with open(JSON_RESULT_FILE_PATH, "w") as json_file:
 Convert the books.csv file to a books.json file
 """
 csv_data = []
+
 with open(CSV_FILE_PATH, "r") as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
@@ -55,5 +56,21 @@ with open(JSON_BOOKS_FILE_PATH, "w") as json_file:
 
 
 """
-Remove extra line
+Remove extra line from books.json
 """
+extracted_data = []
+
+with open(JSON_BOOKS_FILE_PATH, "r") as json_file:
+    data = json.load(json_file)
+    for item in data:
+        if all(key in item for key in ["Title", "Author", "Genre", "Pages"]):
+            extracted_data.append({
+                "Title": item["Title"],
+                "Author": item["Author"],
+                "Genre": item["Genre"],
+                "Pages": item["Pages"]
+            })
+
+
+with open(JSON_BOOKS_FILE_PATH, "w") as json_file:
+    json.dump(extracted_data, json_file, indent=4)
