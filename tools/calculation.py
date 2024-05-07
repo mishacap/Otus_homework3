@@ -14,6 +14,8 @@ with open(CSV_FILE_PATH, "r") as csv_file:
     for row in data:
         num_books +=1
 
+
 # The first 14 users will receive 8 books each and the rest will receive 7 books each.
 books_per_user = num_books // num_users
+
 remainder_books = num_books % num_users

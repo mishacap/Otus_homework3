@@ -26,7 +26,6 @@ with open(JSON_RESULT_FILE_PATH, "w") as json_result_file:
     json.dump(extracted_data, json_result_file, indent=4)
 
 
-
 """
 Add an array of books for each user to result.json
 """

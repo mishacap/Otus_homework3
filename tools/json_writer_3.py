@@ -25,8 +25,3 @@ for user in data_users[14:]:
 
 with open(JSON_RESULT_FILE_PATH, "w") as users_file:
     json.dump(data_users, users_file, indent=4)
-
-
-
-
-
